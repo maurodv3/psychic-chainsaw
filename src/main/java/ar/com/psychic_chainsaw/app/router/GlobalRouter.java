@@ -4,12 +4,13 @@ import ar.com.psychic_chainsaw.app.handler.RecordHandler;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.web.reactive.function.server.RequestPredicates;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
+
+import static org.springframework.http.HttpMethod.*;
+import static org.springframework.http.MediaType.*;
+import static org.springframework.web.reactive.function.server.RequestPredicates.*;
 
 @Configuration
 public class GlobalRouter {
@@ -19,8 +20,8 @@ public class GlobalRouter {
            @Qualifier("recordRouter") RouterFunction<ServerResponse> recordRouter
     ) {
         return RouterFunctions
-                .nest(RequestPredicates.path("/record")
-                        .and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), recordRouter);
+                .nest(path("/record")
+                        .and(accept(APPLICATION_JSON)), recordRouter);
     }
 
     @Bean
@@ -29,8 +30,10 @@ public class GlobalRouter {
             RecordHandler recordHandler
     ) {
         return RouterFunctions
-                .route(RequestPredicates.method(HttpMethod.POST), recordHandler::save)
-                .andRoute(RequestPredicates.method(HttpMethod.GET), recordHandler::getAll);
+                .route(method(POST), recordHandler::save)
+                .andRoute(GET("/{id}"), recordHandler::get)
+                .andRoute(method(GET), recordHandler::getAll)
+                .andRoute(DELETE("/{id}"), recordHandler::delete);
     }
 
 }

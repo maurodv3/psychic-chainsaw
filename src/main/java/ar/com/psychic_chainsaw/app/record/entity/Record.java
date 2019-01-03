@@ -3,6 +3,8 @@ package ar.com.psychic_chainsaw.app.record.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Document
 public class Record {
 
@@ -10,11 +12,14 @@ public class Record {
     private String id;
     private String key;
     private String value;
+    private Date creationTS;
 
     public Record() {
+        this.creationTS = new Date();
     }
 
     public Record(String key, String value) {
+        this.creationTS = new Date();
         this.key = key;
         this.value = value;
     }
@@ -40,4 +45,9 @@ public class Record {
         this.value = value;
         return this;
     }
+
+    public Date getCreationTS() {
+        return creationTS;
+    }
+
 }
