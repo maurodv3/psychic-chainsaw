@@ -1,4 +1,4 @@
-package ar.com.psychic_chainsaw.app.record.entity;
+package ar.com.psychic_chainsaw.app.model.record.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

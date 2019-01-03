@@ -1,4 +1,4 @@
-package ar.com.psychic_chainsaw.app;
+package ar.com.psychic_chainsaw.app.configuration;
 
 import com.mongodb.reactivestreams.client.MongoClient;
 import com.mongodb.reactivestreams.client.MongoClients;
