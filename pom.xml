@@ -6,8 +6,8 @@
     <artifactId>app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>app</name>
-    <description>Psychic Chainsaw App</description>
+    <name>parent-app</name>
+    <description>Psychic Chainsaw Parent App</description>
 
     <properties>
         <java.version>11</java.version>
@@ -16,6 +16,7 @@
     <modules>
         <module>warehouse-service</module>
         <module>registry-service</module>
+        <module>edge-service</module>
     </modules>
 
 </project>

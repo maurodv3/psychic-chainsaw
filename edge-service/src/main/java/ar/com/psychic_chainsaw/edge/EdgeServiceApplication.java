@@ -1,4 +1,4 @@
-package ar.com.psychic_chainsaw.warehouse;
+package ar.com.psychic_chainsaw.edge;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,11 +6,11 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class WarehouseServiceApplication {
+public class EdgeServiceApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(WarehouseServiceApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(EdgeServiceApplication.class, args);
+	}
 
 }
 
